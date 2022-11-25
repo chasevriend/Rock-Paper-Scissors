@@ -1,63 +1,23 @@
-// var choices = [
-//     'rock',
-//     'paper',
-//     'scissors'
-// ]
-
-// let playerSelection = prompt('Rock, Paper or Scissors?');
-
-// //Function that will randomly pick between rock, paper, and scissors
-// function getComputerChoice() {
-//     console.log(choices[Math.floor(Math.random()*choices.length)]);
-// }
-// let computerSelection = getComputerChoice();
-
-// //Function that will play a single round. It will take 2 paramaters and then return
-// // a string that will return the winner
-// function playRound(playerSelection, computerSelection) {
-//     if (playerSelection.toLowerCase() === computerSelection) {
-//     console.log("You tied")
-//     } else if (playerSelection.toLowerCase == 'rock') {
-//         if (computerSelection == 'paper') {
-//             console.log('You lost!');
-//         } else {
-//             console.log('You won!')
-//         }
-//     } else if (playerSelection.toLowerCase() == 'scissors') {
-//         if (computerSelection == 'rock') {
-//             console.log('You lost');
-//         } else {
-//             console.log('You won!')
-//         }
-//     } else if (playerSelection.toLowerCase() == 'paper') {
-//         if (computerSelection == 'scissors') {
-//             console.log('You lost!');
-//         } else {
-//             console.log('You won!');
-//         }
-//     }
-// }
-
-// console.log("I choose " + playerSelection + " !");
-// console.log(playRound(playerSelection, computerSelection));
-
-//Cleaner code Attempt 2
+//Rock, Paper, Scissors.
 //Computer's choices
 const choices = [
     'rock',
     'paper',
     'scissors'
-]
+];
 
 const computerChoice = getComputerChoice();
-const playerChoice = "rock";
+const playerChoice = prompt('Rock, Paper, or Scissors?');
+let playerScore = 0;
+let computerScore = 0;
+let gameRound = 0;
 
-//Function receiving computer's choice
+//Receiving computer's choice
 function getComputerChoice() {
     return choices[Math.floor(Math.random()*choices.length)];
-}
+};
 
-//Function playing game. Receives input from user and computer and decides the winner
+//Playing game. Receives input from user and computer and decides the winner
 function playRound(playerChoice, computerChoice) {
     if (playerChoice.toLowerCase() == computerChoice) {
         console.log("You tied");
@@ -65,13 +25,13 @@ function playRound(playerChoice, computerChoice) {
     if (computerChoice == 'paper') {
         console.log('You lost!');
     } else {
-        console.log('You won!')
+        console.log('You won!');
     }
 } else if (playerChoice.toLowerCase() == 'scissors') {
     if (computerChoice == 'rock') {
         console.log('You lost');
     } else {
-        console.log('You won!')
+        console.log('You won!');
     }
 } else if (playerChoice.toLowerCase() == 'paper') {
     if (computerChoice == 'scissors') {
@@ -80,16 +40,42 @@ function playRound(playerChoice, computerChoice) {
         console.log('You won!');
     }
 }   
-}
+};
 
-//Function playing the game and keeping score
-// function game() {
-//     for (let i = 0; i < 5; i++) {
-//         getComputerChoice();
-//         playRound();
-//     }
-// }
+//Plays a 5 round game, keeps score and reports the winner and loser at the end
+function playGame(playerChoice, computerChoice) {
+    for (let i = 0; i < 5; i++) {
+        playRound(playerChoice, computerChoice);
+        if (playerChoice.toLowerCase() == computerChoice) {
+            ++gameRound;
+        } else if (playerChoice.toLowerCase() == 'rock' && computerChoice == 'scissors') {
+            ++gameRound;
+            ++playerScore;
+        } else {
+            ++gameRound;
+            ++computerScore;
+        } if (playerChoice.toLowerCase() == 'paper' && computerChoice == 'rock') {
+            ++gameRound;
+            ++playerScore;
+        } else {
+            ++gameRound;
+            ++computerScore;
+        } if (playerChoice.toLowerCase() == 'scissors' && computerChoice == 'paper') {
+            ++gameRound;
+            ++playerScore;
+        } else {
+            ++gameRound;
+            ++computerScore;
+        }
 
+        if (playerScore === 5) {
+            alert('Congratulations. You have won.');
+        } else {
+            alert('Better luck next time.');
+        }
+    }
+};
 
 getComputerChoice();
 playRound(playerChoice, computerChoice);
+
