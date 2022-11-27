@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Rock Paper Scissors</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="text-center main">
+    <header>
+        <h1>Rock Paper Scissors</h1>
+    </header>
+    <div class="main">
+        <div class="col">
+            <h3>First To 5 Wins!</h3>
+        </div>
+    
+        <div class="optionBtn">
+            <button id="0" class="btn btn-secondary">Rock</button>
+            <button id="1" class="btn btn-secondary">Paper</button>
+            <button id="2" class="btn btn-secondary">Scissors</button>
+        </div>
+
+        <div class="labels row">
+            <span id="playerLabel" class="col">Player scores</span>
+            <span id="compLabel" class="col">Computer scores</span>
+        </div>
+        
+
+        <div class="scores row">
+            <div id="playerScore" class="col"></div>
+            <div id="computerScore" class="col"></div>
+        </div>
+
+        <div>
+            <span id="resultsLabel">Results</label>
+        </div>
+        
+
+        <div id="roundResults"></div>
+
+    <div>
+        <button id="reset" class="btn btn-dark">Play Again!</button>
+    </div>
+  </div>
+</body>
+<script src ="script.js"></script>  
+</html>
